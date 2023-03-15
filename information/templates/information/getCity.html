@@ -1,0 +1,14 @@
+{% extends "information/layout.html" %}
+
+{% block title %}City{% endblock title %}
+
+{% block body %}
+    <form action = "{% url 'information:city' %}" method = "post">
+        {% if message != None %}
+        <p style = "color: red"> {{message}}</p>
+        {% endif %}
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+{% endblock %}

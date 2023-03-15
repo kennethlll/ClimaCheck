@@ -1,0 +1,55 @@
+{% extends "information/layout.html" %}
+
+{% block title %}Current weather{% endblock title%}
+
+{% block body%}
+
+<div class="table-responsive">
+    {% for day in data %}
+    <table class="table table-borderless table-striped table-sm " style="width:  40%">
+        <tr>
+            <td style="width:  40%">Date: </td>
+            <td >{{day.date}}</td>
+        </tr>
+        <tr>
+            <td>City: </td>
+            <td>{{day.city}}</td>
+        </tr>
+        <tr>
+            <td>Weather type: </td>
+            <td>{{day.type_w}}</td>
+        </tr>
+        <tr>
+            <td>Current temperature: </td>
+            <td>{{day.temp}}°C</td>
+        </tr>
+        <tr>
+            <td>Feels like: </td>
+            <td>{{day.tempfeel}}°C</td>
+        </tr>
+        <tr>
+            <td>Temperature range: </td>
+            <td>{{day.temp_min}}°C to {{day.temp_max}}°C</td>
+        </tr>
+        <tr>
+            <td>Visibility: </td>
+            <td>{{day.vis}}</td>
+        </tr>
+        <tr>
+            <td>Wind speed: </td>
+            <td>{{day.wind}}km/h</td>
+        </tr>
+        <tr>
+            <td>Cloud: </td>
+            <td>{{day.cloud}}</td>
+        </tr>
+    </table>
+    <br>
+    {% endfor %}
+</div>
+
+<footer class="mb-5 small text-center text-muted">
+    Data provided by <a href="https://openweathermap.org/">Open Weather</a>
+</footer>
+
+{% endblock body%}
